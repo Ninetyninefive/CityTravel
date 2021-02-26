@@ -1,20 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>City Travel -- Your dream location just an API call away!</title>
-</head>
-<body>
-    
+<html>
+    <head>
+        <title>995 Index</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    </head>
 
-    <section>
-        <h1>City Travel</h1>
-            <p>
-                Where wonders happen!
-            </p>
-    </section>
-    <script src="/js/main.js"></script> 
-</body>
+    <body>
+            <header class="page-content">
+                <nav class="nav-container">
+                    <img class="search-image" src="./img/airplane.jpg">
+                    <h1 class="search-title">City Travel</h1>
+                </nav>
+               
+                <article class="search">
+                    
+                    <input class="searchbar" type="text" id="search_string" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
+                    <button class="go">Go!</button>
+                </article>
+
+                    <h2 class="Location">Location:</h2>
+
+                <article class="weather">
+                    <h1 class="weekday">Weekday</h1>
+                    <p class="temp">1000C</p>
+                    <p class="condition">Cloudy with suns and rain.</p>
+                    <img class="entry-image" src="./img/weather.png">
+                </article>
+
+
+                <div class="results">
+                <article class="attraction">
+                    <h1>Location</h1>
+                    <h1 class="name">First Attraction</h1>
+                    <p class="address">Today i went looking for strange flowers.</p>
+                    <img class="entry-image" src="./img/pyramid.jpg">
+                </article>
+                <article class="attraction">
+                    <h1>Location</h1>
+                    <h1 class="name">Second Attraction</h1>
+                    <p class="address">Today i went looking for strange flowers.</p>
+                    <img class="entry-image" src="./img/pyramid.jpg">
+                </article>
+                <article class="attraction">
+                    <h1>Location</h1>
+                    <h1 class="name">Third Attraction</h1>
+                    <p class="address">Today i went looking for strange flowers.</p>
+                    <img class="entry-image" src="./img/pyramid.jpg">
+                </article>
+                <article class="attraction">
+                    <h1>Location</h1>
+                    <h1 class="name">Fourth Attraction</h1>
+                    <p class="address">Today i went looking for strange flowers.</p>
+                    <img class="entry-image" src="./img/pyramid.jpg">
+                </article>
+                <article class="attraction">
+                    <h1>Location</h1>
+                    <h1 class="name">Fifth Attraction</h1>
+                    <p class="address">Today i went looking for strange flowers.</p>
+                    <img class="entry-image" src="./img/pyramid.jpg">
+                </article>
+            </div>
+
+                <footer>
+                    <p>NinetynineFive for Cloud Azure Frontend 2021.<br>Some rights partially reserved.</p>
+                </footer>
+            </header class="page-content">
+            <script src="js/main.js"></script> 
+    </body>
+            
+             
 </html>

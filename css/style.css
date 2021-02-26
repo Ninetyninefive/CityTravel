@@ -1,4 +1,577 @@
-h1{
-    font-family: 'Courier New', Courier, monospace;
+@media screen and (min-width:980px)/* Desktop */
+{
+    body{
+        font-family: 'Source Code Pro', monospace;
+        background: rgba(243, 186, 132, 0.527);
+        margin: auto;
+    }
+    div{
+        margin: auto;
+        padding: 2px 2px 2px 2px;
+    }
+    header{
+        margin: auto;
+        padding: 2px 2px 2px 2px;
+    }
+    article{
+        margin: 0px 0px 0px 0px;
+        padding: 2px 2px 2px 2px;
+    }
+    .weather{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto;
+        grid-gap: 5px;
+        background-color: rgba(243, 186, 132, 0.5);
+
+        margin: auto;
+        text-align: left;
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 5px;
+    }
+
+    .search{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto;
+        grid-gap: 5px;
+        background-color: rgba(243, 186, 132, 0.5);
+
+        margin: auto;
+        text-align: left;
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 5px;
+    }
+
+    .search-image{
+        min-width: 100px;
+        max-width: 100px;
+
+    }
+
+
+    .search > .searchbar{
+        font-size: 18px;
+        height: 20px;
+        margin: 0px;
+        position: inherit;
+        min-width: auto;
+        padding-left: 5px;
+        grid-column: 1/ span 1;
+        grid-row: 1 / 2;
+
+        font-weight: bold;
+        text-align: left;
+      }
+
+      .search > .go{
+        font-size: 18px;
+        padding-left: 5px;
+        grid-column: 3/ span 1;
+        font-weight: bold;
+        text-align: left;
+      }
+    .results{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto;
+        grid-gap: 5px;
+        background-color: rgba(243, 186, 132, 0.5);
+        margin: auto;
+        text-align: left;
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 5px;
+    }
+    .attraction{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto;
+        grid-gap: 5px;
+        background-color: rgba(243, 186, 132, 0.5);
+        margin: auto;
+        text-align: left;
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 5px;
+    }
+    .attraction > .name{
+        font-size: 18px;
+        height: 20px;
+        margin: 0px;
+        min-width: auto;
+        padding-left: 5px;
+        grid-column: 1/ span 4;
+        grid-row: 1 / 2;
+        font-weight: bold;
+        text-align: left;
+      }
+
+    .weather > .entry-image{
+        padding-top: 0px;
+        margin-top: 2px;
+        max-height: 120px;
+        max-width: 120px;
+        padding-left: 5px;
+        margin-right: 10px;
+        width: auto;
+        grid-column: 1 / span 1;
+        grid-row: 2 / 3;
+      }
+    .weather > .temp {
+        padding-top: 0px;
+        padding-left: 5px;
+        margin-top: 2px;
+        margin-left: 10px;
+        min-width: auto;
+        grid-column: 2 / span 3;
+        grid-row: 2 / 3;
+        font-size: 14px;
+
+        font-weight: normal;
+        text-align: left;
+      }
+      .weather > .condition {
+        padding-top: 0px;
+        padding-left: 5px;
+        margin-top: 2px;
+        margin-left: 10px;
+        min-width: auto;
+        grid-column: 2 / span 3;
+        grid-row: 2 / 3;
+        font-size: 14px;
+
+        font-weight: normal;
+        text-align: left;
+      }
+      .weather > .weekday{
+        font-size: 18px;
+        height: 35px;
+        margin: 0px;
+        min-width: auto;
+        padding-left: 5px;
+        grid-column: 1/ span 4;
+        grid-row: 1 / 2;
+
+        font-weight: bold;
+        text-align: left;
+      }
+
+    .attraction > img{
+        padding-top: 0px;
+        margin-top: 2px;
+        max-height: 120px;
+        max-width: 120px;
+        padding-left: 5px;
+        margin-right: 10px;
+        width: auto;
+        grid-column: 1 / span 1;
+        grid-row: 2 / 3;
+      }
+    .attraction > p {
+        padding-top: 0px;
+        padding-left: 5px;
+        margin-top: 2px;
+        margin-left: 10px;
+        min-width: auto;
+        grid-column: 2 / span 3;
+        grid-row: 2 / 3;
+        font-size: 14px;
+
+        font-weight: normal;
+        text-align: left;
+      }
+    h1{
+
+        font-weight: bold;
+        text-align: center;
+    }
+
+    h2{
+
+        font-weight: bold;
+        text-align: left;
+        margin-left: 25px;
+        margin-bottom: 5px;
+    }
     
+    .Location{
+
+        font-weight: bold;
+        text-align: left;
+        margin-left: 25px;
+        margin-bottom: 5px;
+    }
+
+    footer{
+        margin: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 5px;
+        margin-top: 50px;
+        background-color: rgba(243, 186, 132, 0.5);
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .nav-container{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto;
+        margin: auto;
+        padding-top:20px;
+        padding-bottom: 20px;
+        background-color: none;
+        border:seashell;
+        grid-template-columns: auto auto auto auto auto auto;
+        border-width: 10px;
+        border-color: black;
+        font-size: small;
+        font-family: 'Source Code Pro', monospace;
+    }
+
+    .nav-container > .search-title{
+        text-align: left;
+        font-size: 45px;
+        min-height: 25px;
+        max-height: 50px;
+    }
+
+    .nav-container > a{
+        text-align: center;
+    }
+
+    .page-content{
+        font-family: 'Source Code Pro', monospace;
+        max-width: 500px;
+        margin: auto;
+    }
+}
+
+ /* unvisited link */
+ a:link {
+    color: maroon;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: maroon;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: chocolate;
+  }
+  
+  /* selected link */
+  a:active {
+    color: maroon;
+  } 
+
+  @media screen  and (max-width:979px)/* Tablet */
+{
+    body{
+        font-family: 'Source Code Pro', monospace;
+        background: rgba(243, 186, 132, 0.527);
+        margin: auto;
+    }
+    div{
+        margin: auto;
+        padding: 2px 2px 2px 2px;
+    }
+    header{
+        margin: auto;
+        padding: 2px 2px 2px 2px;
+    }
+    article{
+        margin: 0px 0px 0px 0px;
+        padding: 2px 2px 2px 2px;
+    }
+    .entry{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto;
+        grid-gap: 5px;
+        background-color: rgba(243, 186, 132, 0.5);
+        font-family: 'Source Code Pro', monospace;
+        margin: auto;
+        text-align: left;
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 5px;
+    }
+    .entry > h1{
+        font-size: 18px;
+        height: 35px;
+        margin: 0px;
+        min-width: auto;
+        padding-left: 5px;
+        grid-column: 1/ span 4;
+        grid-row: 1 / 2;
+        font-family: 'Source Code Pro', monospace;
+        font-weight: bold;
+        text-align: left;
+      }
+
+    .entry > img{
+        padding-top: 0px;
+        margin-top: 2px;
+        max-height: 120px;
+        max-width: 120px;
+        padding-left: 5px;
+        margin-right: 10px;
+        width: auto;
+        grid-column: 1 / span 1;
+        grid-row: 2 / 3;
+      }
+    .entry > p {
+        padding-top: 0px;
+        padding-left: 5px;
+        margin-top: 2px;
+        margin-left: 10px;
+        min-width: auto;
+        grid-column: 2 / span 3;
+        grid-row: 2 / 3;
+        font-size: 14px;
+        font-family: 'Source Code Pro', monospace;
+        font-weight: normal;
+        text-align: left;
+      }
+
+    h1{
+        font-family: 'Source Code Pro', monospace;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    h2{
+        font-family: 'Source Code Pro', monospace;
+        font-weight: bold;
+        text-align: left;
+        margin-left: 25px;
+        margin-bottom: 5px;
+    }
+
+    p{
+        font-family: 'Source Code Pro', monospace;
+    }
+
+    footer{
+        font-family: 'Source Code Pro', monospace;
+        margin: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 5px;
+        margin-top: 50px;
+        background-color: rgba(243, 186, 132, 0.5);
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .nav-container{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto;
+        margin: auto;
+        padding-top:20px;
+        padding-bottom: 20px;
+        background-color: none;
+        border:seashell;
+        grid-template-columns: auto auto auto auto auto auto;
+        border-width: 10px;
+        border-color: black;
+        font-size: small;
+        font-family: 'Source Code Pro', monospace;
+    }
+
+    .nav-container > a{
+        text-align: center;
+    }
+
+    .page-content{
+        font-family: 'Source Code Pro', monospace;
+        max-width: 500px;
+        margin: auto;
+    }
+}
+
+.entry-image{
+    min-width: 100px;
+    max-width: 50%;
+}
+
+ /* unvisited link */
+ a:link {
+    color: maroon;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: maroon;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: chocolate;
+  }
+  
+  /* selected link */
+  a:active {
+    color: maroon;
+  } 
+
+@media screen and (max-width:500px)
+/* Mobile */
+{
+    body{
+        font-family: 'Source Code Pro', monospace;
+        background: rgba(243, 186, 132, 0.527);
+        margin: auto;
+    }
+    div{
+        margin: auto;
+        padding: 2px 2px 2px 2px;
+    }
+    header{
+        margin: auto;
+        padding: 2px 2px 2px 2px;
+    }
+    article{
+        margin: 0px 0px 0px 0px;
+        padding: 2px 2px 2px 2px;
+    }
+    .entry{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto;
+        grid-gap: 5px;
+        background-color: rgba(243, 186, 132, 0.5);
+        font-family: 'Source Code Pro', monospace;
+        margin: auto;
+        text-align: left;
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 5px;
+    }
+    .entry > h1{
+        font-size: 16px;
+        height: 20px;
+        margin: 0px;
+        min-width: auto;
+        padding-left: 5px;
+        padding-right: 5px;
+        grid-column: 1/ span 4;
+        grid-row: 1 / 2;
+        font-family: 'Source Code Pro', monospace;
+        font-weight: bold;
+        text-align: left;
+      }
+
+    .entry > img{
+        align-content: center;
+        padding-top: 0px;
+        margin-top: 2px;
+        max-height: 200px;
+        max-width: 240px;
+        padding-left: 5px;
+        margin-right: 2px;
+        width: auto;
+        grid-column: 1 / span 4;
+        grid-row: 2 / 3;
+      }
+    .entry > p {
+        padding-top: 10px;
+        padding-left: 0px;
+        margin-top: 2px;
+        margin-left: 5px;
+        min-width: auto;
+        grid-column: 1 / span 4;
+        grid-row: auto;
+        font-size: 14px;
+        font-family: 'Source Code Pro', monospace;
+        text-align: left;
+      }
+
+    h1{
+        font-family: 'Source Code Pro', monospace;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    h2{
+        font-family: 'Source Code Pro', monospace;
+        font-weight: bold;
+        text-align: left;
+        margin-left: 25px;
+        margin-bottom: 5px;
+    }
+
+    p{
+        font-family: 'Source Code Pro', monospace;
+        font-weight: normal;
+    }
+
+    footer{
+        font-family: 'Source Code Pro', monospace;
+        margin: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 5px;
+        margin-top: 50px;
+        background-color: rgba(243, 186, 132, 0.5);
+        text-align: center;
+        font-size: 8px;
+    }
+
+    .nav-container{
+        margin: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 5px;
+        margin-top: 50px;
+        background: rgba(243, 186, 132, 0.1);
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .nav-container > a{
+        text-align: center;
+    }
+
+    .page-content{
+
+        max-width: 480px;
+        margin: auto;
+    }
+}
+
+.entry-image{
+    min-width: 100px;
+    max-width: 50%;
+}
+
+  a:visited,
+  a:link,
+  a:active {
+    color: maroon;
+}
+  
+  a:hover {
+    color: chocolate;
 }

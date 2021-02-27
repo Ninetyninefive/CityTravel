@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>995 Index</title>
+        <title>CityTravel Search</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet"> 
@@ -10,55 +10,104 @@
 
     <body>
             <header class="page-content">
-                <nav class="nav-container">
-                    <img class="search-image" src="./img/airplane.jpg">
-                    <h1 class="search-title">City Travel</h1>
+                <nav class="title">
+                    <img class="title-image" src="./img/airplane.jpg">
+                    <h1 class="title-name">City Travel</h1>
                 </nav>
                
                 <article class="search">
                     
-                    <input class="searchbar" type="text" id="search_string" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
-                    <button class="go">Go!</button>
-                </article>
+                    <input class="searchbar" type="text" id="searchstring" placeholder="Search.." title="Enter a location">
+                    <button class="go" id="go" title="Enter desired location, then press me!">Go!</button>
 
-                    <h2 class="Location">Location:</h2>
+                    <div class="boxbox">
+                    <label><input type="checkbox" class="weatherbox" id="weatherbox" title="Only Weather">Only weather</label>
+                    <!--<label class="weatherlabel" for="weatherbox">Only Weather</label>
+                    -->
+                    <label><input type="checkbox" class="attractionbox" id="attractionbox" title="Only Attractions">Only attractions</label>
+                    <!--<label class="attractionlabel" for="attractionbox">Only Attractions</label>
+                    -->
+                    <label><input type="checkbox" class="filterbox" id="filterbox" title="Filter Alphabetically">Filter Alphabetically</label>
+                    <!--<label class="filterlabel" for="filterbox">Sort Alphabetically</label>
+                    -->
+                    </div>
+                    </article>
+
+                    <h2 id="Location" class="Location">Location:</h2>
 
                 <article class="weather">
                     <h1 class="weekday">Weekday</h1>
-                    <p class="temp">1000C</p>
-                    <p class="condition">Cloudy with suns and rain.</p>
+                    <p class="temp">Temperature : 1000C</p>
+                    <p class="condition">Condition: Cloudy with suns and rain.</p>
                     <img class="entry-image" src="./img/weather.png">
                 </article>
 
+                <h2 class="Location">Top attractions:</h2>
 
                 <div class="results">
                 <article class="attraction">
                     <h1>Location</h1>
-                    <h1 class="name">First Attraction</h1>
+                    <h1 class="name">1 Attraction</h1>
                     <p class="address">Today i went looking for strange flowers.</p>
                     <img class="entry-image" src="./img/pyramid.jpg">
                 </article>
                 <article class="attraction">
                     <h1>Location</h1>
-                    <h1 class="name">Second Attraction</h1>
+                    <h1 class="name">2 Attraction</h1>
                     <p class="address">Today i went looking for strange flowers.</p>
                     <img class="entry-image" src="./img/pyramid.jpg">
                 </article>
                 <article class="attraction">
                     <h1>Location</h1>
-                    <h1 class="name">Third Attraction</h1>
+                    <h1 class="name">3 Attraction</h1>
                     <p class="address">Today i went looking for strange flowers.</p>
                     <img class="entry-image" src="./img/pyramid.jpg">
                 </article>
                 <article class="attraction">
                     <h1>Location</h1>
-                    <h1 class="name">Fourth Attraction</h1>
+                    <h1 class="name">4 Attraction</h1>
                     <p class="address">Today i went looking for strange flowers.</p>
                     <img class="entry-image" src="./img/pyramid.jpg">
                 </article>
                 <article class="attraction">
                     <h1>Location</h1>
-                    <h1 class="name">Fifth Attraction</h1>
+                    <h1 class="name">5 Attraction</h1>
+                    <p class="address">Today i went looking for strange flowers.</p>
+                    <img class="entry-image" src="./img/pyramid.jpg">
+                </article>
+                <article class="attraction">
+                    <h1>Location</h1>
+                    <h1 class="name">6 Attraction</h1>
+                    <p class="address">Today i went looking for strange flowers.</p>
+                    <img class="entry-image" src="./img/pyramid.jpg">
+                </article>
+                <article class="attraction">
+                    <h1>Location</h1>
+                    <h1 class="name">7 Attraction</h1>
+                    <p class="address">Today i went looking for strange flowers.</p>
+                    <img class="entry-image" src="./img/pyramid.jpg">
+                </article>
+                <article class="attraction">
+                    <h1>Location</h1>
+                    <h1 class="name">8 Attraction</h1>
+                    <p class="address">Today i went looking for strange flowers.</p>
+                    <img class="entry-image" src="./img/pyramid.jpg">
+                </article>
+                <article class="attraction">
+                    <h1>Location</h1>
+                    <h1 class="name">9 Attraction</h1>
+                    <p class="address">Today i went looking for strange flowers.</p>
+                    <img class="entry-image" src="./img/pyramid.jpg">
+                </article>
+                <article class="attraction">
+                    <h1>Location</h1>
+                    <h1 class="name">10 Attraction</h1>
+                    <p class="address">Today i went looking for strange flowers.</p>
+                    <img class="entry-image" src="./img/pyramid.jpg">
+                </article>
+                <article class="attraction">
+                    <h1>Location</h1>
+                    <h1 class="name">11 Attraction</h1>
                     <p class="address">Today i went looking for strange flowers.</p>
                     <img class="entry-image" src="./img/pyramid.jpg">
                 </article>

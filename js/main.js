@@ -65,7 +65,7 @@ async function someThingWentWrong(){
 }
 
 async function injectResults(){
-
+  //INJECTING WEATHER INFO
   let x = await weather;
   
   let day = weekday;
@@ -82,6 +82,8 @@ let fragment = document.createDocumentFragment();
 
 let h2 = document.createElement('h2');
     h2.className = 'Location';
+    h2.textContent = `${document.getElementById("searchstring").value}`;
+    fragment.appendChild(h2);
 
 let h1 = document.createElement('h1');
     h1.textContent = `${day}`;
@@ -107,10 +109,12 @@ let img = document.createElement('img');
     // append the fragment to the DOM tree
     target.appendChild(fragment);
 
-      let y = await places;
-      //////PLACES
-      let path = y.response.groups[0].items[0];
 
+      //INJECT PLACES INFO
+      let y = await places;
+      for (let index = 0; index < y.response.groups[0].items.length; index++) {
+        let path = y.response.groups[0].items[index];
+      
       let name = path.venue.name;
       let address = path.venue.location.address;
       let city = path.venue.location.city;
@@ -152,13 +156,9 @@ let img = document.createElement('img');
         article.appendChild(img);
         
         target.appendChild(fragment);
+      }
+      
 }
-
-function showResultsBasedOnFilters(){
-  
-}
-
-
 
 /*
 https://api.foursquare.com/v2/venues/explore?ll=40.7,-74&v=20121124

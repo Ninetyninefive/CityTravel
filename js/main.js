@@ -16,10 +16,12 @@ toggleAttraction.onclick = disableWeather;
 function disableAttractions(){
   let disable = document.querySelector('.results');
   disable.innerHTML = '';
+  const disableAttractions = 'true';
 }
 function disableWeather(){
   let disable = document.querySelector('.weather');
   disable.innerHTML = '';
+  const disableWeather = 'true';
 }
 
 
@@ -69,7 +71,6 @@ async function someThingWentWrong(){
   let fragment = document.createDocumentFragment();
   let h1 = document.createElement('h1');
     h1.textContent = `Something went wrong!`;
-    h1.className = 'weekday';
 
     fragment.appendChild(h1);
 
@@ -121,9 +122,9 @@ let img = document.createElement('img');
 
     // append the fragment to the DOM tree
     
-    target.appendChild(fragment);
-
-
+      target.appendChild(fragment);
+    
+    
       //INJECT PLACES INFO
       let y = await places;
       
@@ -170,7 +171,8 @@ let img = document.createElement('img');
           img.crossOrigin = "anonymous";
           article.appendChild(img);
 
-          target.appendChild(fragment);
+        target.appendChild(fragment);
+          
       }
 
 }

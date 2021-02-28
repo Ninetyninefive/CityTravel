@@ -322,12 +322,13 @@
   } 
 
   @media screen  and (max-width:979px)/* Tablet */
-{
+  {
     body{
         font-family: 'Source Code Pro', monospace;
-        background: rgba(243, 186, 132, 0.527);
+        background: rgba(243, 186, 132, 0.5);
         margin: auto;
     }
+
     div{
         margin: auto;
         padding: 2px 2px 2px 2px;
@@ -340,13 +341,117 @@
         margin: 0px 0px 0px 0px;
         padding: 2px 2px 2px 2px;
     }
-    .entry{
+
+    .page-content{
+        font-family: 'Source Code Pro', monospace;
+        max-width: 1080px;
+        margin: auto;
+    }
+
+    /* NAVIGATION */
+    .title{
         display: grid;
-        grid-template-columns: auto auto auto;
-        grid-template-rows: auto auto auto;
+        grid-template-rows: auto auto;
+        margin-left: 20px;
+        padding-top:20px;
+        padding-bottom: 20px;
+        background-color: none;
+        border:seashell;
+        grid-template-columns: auto auto;
+        border-width: 10px;
+        border-color: black;
+        font-size: small;
+        font-family: 'Source Code Pro', monospace;
+        
+    }
+
+    .title > .title-name{
+        text-align: left;
+        font-size: 45px;
+        min-height: 25px;
+        max-height: 50px;
+        background-image: "./img/airplane.jpg";
+    }
+    
+    .title-image{
+        min-width: 100px;
+        max-width: 100px;
+    }
+
+    .title > a{
+        text-align: center;
+    }
+
+    .search{
+        border-radius: 4px;
+        border: 1px solid rgba(248, 213, 180, 0.63);
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        grid-template-rows: auto auto auto auto;
         grid-gap: 5px;
         background-color: rgba(243, 186, 132, 0.5);
-        font-family: 'Source Code Pro', monospace;
+        min-height: 80px;
+        max-height: 80px;
+        margin: auto;
+        text-align: left;
+        margin-top: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        padding: 5px;
+    }
+
+    .search > .searchbar{
+        font-size: 18px;
+        height: auto;
+        margin: 0px;
+        position: inherit;
+        min-width: auto;
+        padding-left: 5px;
+        grid-column: 1 / span 3;
+        grid-row: 2;
+        font-weight: bold;
+        text-align: left;
+
+      }
+
+      .search > .go{
+        font-size: 18px;
+        height: auto;
+        margin: 0px;
+        position: inherit;
+        min-width: auto;
+        max-width: 50px;
+        padding-left: 5px;
+        grid-column: 4;
+        grid-row: 2;
+
+        font-weight: bold;
+        text-align: center;
+      }
+      .search > article{
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto;
+        height: auto;
+        margin: 0px;
+        min-width: auto;
+        max-width: auto;
+        margin-top: 5px;
+        padding-left: 0px;
+        padding-right: 5px;
+        grid-column: 5;
+        grid-row: 1 / span 3;
+        font-weight: bold;
+        text-align: left;
+      }
+
+      .weather{
+        display: grid;
+        grid-template-columns: auto auto auto ;
+        grid-template-rows: auto auto auto auto;
+        grid-gap: 5px;
+        background-color: rgba(243, 186, 132, 0.5);
         margin: auto;
         text-align: left;
         margin-top: 20px;
@@ -354,64 +459,154 @@
         margin-right: 20px;
         padding: 5px;
     }
-    .entry > h1{
-        font-size: 18px;
-        height: 35px;
-        margin: 0px;
-        min-width: auto;
+
+      .weather > .Location{
+        padding-top: 0px;
         padding-left: 5px;
-        grid-column: 1/ span 4;
-        grid-row: 1 / 2;
-        font-family: 'Source Code Pro', monospace;
-        font-weight: bold;
+        margin-top: 2px;
+        margin-left: 10px;
+        min-width: auto;
+        grid-column: 1;
+        grid-row: 3;
+        font-size: 14px;
+        font-weight: bolder;
         text-align: left;
       }
 
-    .entry > img{
-        padding-top: 0px;
-        margin-top: 2px;
-        max-height: 120px;
-        max-width: 120px;
-        padding-left: 5px;
-        margin-right: 10px;
-        width: auto;
-        grid-column: 1 / span 1;
-        grid-row: 2 / 3;
-      }
-    .entry > p {
+
+      .weather > .weekday{
         padding-top: 0px;
         padding-left: 5px;
         margin-top: 2px;
         margin-left: 10px;
         min-width: auto;
         grid-column: 2 / span 3;
-        grid-row: 2 / 3;
+        grid-row: 1;
         font-size: 14px;
-        font-family: 'Source Code Pro', monospace;
-        font-weight: normal;
+        font-weight: bolder;
         text-align: left;
       }
 
+    .weather > .temp {
+        padding-top: 0px;
+        padding-left: 5px;
+        margin-top: 2px;
+        margin-left: 10px;
+        min-width: auto;
+        grid-column: 2 / span 3;
+        grid-row: 2;
+        font-size: 14px;
+        font-weight: bolder;
+        text-align: left;
+      }
+      .weather > .condition {
+        padding-top: 0px;
+        padding-left: 5px;
+        margin-top: 2px;
+        margin-left: 10px;
+        min-width: auto;
+        grid-column: 2 / span 3;
+        grid-row: 3;
+        font-size: 14px;
+        font-weight: bolder;
+        text-align: left;
+      }
+
+      .weather > .entry-image{
+        padding-top: 0px;
+        margin-top: 2px;
+        max-height: 80px;
+        max-width: 80px;
+        padding-left: 5px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        grid-column: 1;
+        grid-row: 1 / span 3;
+      }
+
+    .results{
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto auto;
+        grid-gap: 5px;
+        background-color: rgba(243, 186, 132, 0.5);
+        margin: auto;
+        text-align: left;
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 5px;
+    }
+    .attraction{
+        display: grid;
+        grid-template-columns: 88 auto;
+        grid-template-rows: auto auto;
+        grid-gap: 5px;
+        background-color: rgba(243, 186, 132, 0.5);
+        margin: auto;
+        text-align: left;
+        max-height: 145px;
+        margin-top: 5px;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        
+        padding: 5px;
+    }
+    .attraction > .name{
+        text-align: right;
+        padding: 0;
+        margin: 0;
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+    .attraction > .address {
+        text-align: right;
+        grid-column: 2;
+        grid-row: 2;
+      }
+      .attraction > .city {
+        text-align: right;
+        grid-column: 2;
+        grid-row: 3;
+      }
+
+      .attraction > img{
+        padding-top: 0px;
+        margin-top: 2px;
+        max-height: auto;
+        max-width: auto;
+        padding-left: 5px;
+        margin-right: 10px;
+        width: auto;
+        grid-column: 1  span 2 ;
+        grid-row: 1 / span 2;
+      }
+
     h1{
-        font-family: 'Source Code Pro', monospace;
+
         font-weight: bold;
         text-align: center;
     }
 
     h2{
-        font-family: 'Source Code Pro', monospace;
+
+        font-weight: bold;
+        text-align: left;
+        margin-left: 25px;
+        margin-bottom: 5px;
+    }
+    
+    .Location{
+
         font-weight: bold;
         text-align: left;
         margin-left: 25px;
         margin-bottom: 5px;
     }
 
-    p{
-        font-family: 'Source Code Pro', monospace;
-    }
-
     footer{
-        font-family: 'Source Code Pro', monospace;
         margin: auto;
         padding-left: 20px;
         padding-right: 20px;
@@ -419,41 +614,11 @@
         margin-right: 20px;
         padding: 5px;
         margin-top: 50px;
-        background-color: rgba(243, 186, 132, 0.5);
+        background-color: rgba(243, 186, 132, 0.25);
         text-align: center;
         font-size: 12px;
     }
 
-    .nav-container{
-        display: grid;
-        grid-template-columns: auto auto auto;
-        grid-template-rows: auto auto auto;
-        margin: auto;
-        padding-top:20px;
-        padding-bottom: 20px;
-        background-color: none;
-        border:seashell;
-        grid-template-columns: auto auto auto auto auto auto;
-        border-width: 10px;
-        border-color: black;
-        font-size: small;
-        font-family: 'Source Code Pro', monospace;
-    }
-
-    .nav-container > a{
-        text-align: center;
-    }
-
-    .page-content{
-        font-family: 'Source Code Pro', monospace;
-        max-width: 500px;
-        margin: auto;
-    }
-}
-
-.entry-image{
-    min-width: 100px;
-    max-width: 50%;
 }
 
  /* unvisited link */
@@ -470,6 +635,9 @@
   a:hover {
     color: chocolate;
   }
+  .attraction:hover, .weather:hover{
+    background-color: rgba(214, 144, 79, 0.479);
+  }
   
   /* selected link */
   a:active {
@@ -479,144 +647,339 @@
 @media screen and (max-width:500px)
 /* Mobile */
 {
-    body{
-        font-family: 'Source Code Pro', monospace;
-        background: rgba(243, 186, 132, 0.527);
-        margin: auto;
-    }
-    div{
-        margin: auto;
-        padding: 2px 2px 2px 2px;
-    }
-    header{
-        margin: auto;
-        padding: 2px 2px 2px 2px;
-    }
-    article{
-        margin: 0px 0px 0px 0px;
-        padding: 2px 2px 2px 2px;
-    }
-    .entry{
-        display: grid;
-        grid-template-columns: auto auto auto;
-        grid-template-rows: auto auto auto;
-        grid-gap: 5px;
-        background-color: rgba(243, 186, 132, 0.5);
-        font-family: 'Source Code Pro', monospace;
-        margin: auto;
-        text-align: left;
-        margin-top: 20px;
-        margin-left: 20px;
-        margin-right: 20px;
-        padding: 5px;
-    }
-    .entry > h1{
-        font-size: 16px;
-        height: 20px;
-        margin: 0px;
-        min-width: auto;
-        padding-left: 5px;
-        padding-right: 5px;
-        grid-column: 1/ span 4;
-        grid-row: 1 / 2;
-        font-family: 'Source Code Pro', monospace;
-        font-weight: bold;
-        text-align: left;
-      }
+  body{
+      font-family: 'Source Code Pro', monospace;
+      background: rgba(243, 186, 132, 0.5);
+      margin: auto;
+  }
 
-    .entry > img{
-        align-content: center;
-        padding-top: 0px;
-        margin-top: 2px;
-        max-height: 200px;
-        max-width: 240px;
-        padding-left: 5px;
-        margin-right: 2px;
-        width: auto;
-        grid-column: 1 / span 4;
-        grid-row: 2 / 3;
-      }
-    .entry > p {
-        padding-top: 10px;
-        padding-left: 0px;
-        margin-top: 2px;
-        margin-left: 5px;
-        min-width: auto;
-        grid-column: 1 / span 4;
-        grid-row: auto;
-        font-size: 14px;
-        font-family: 'Source Code Pro', monospace;
-        text-align: left;
-      }
+  div{
+      margin: auto;
+      padding: 2px 2px 2px 2px;
+  }
+  header{
+      margin: auto;
+      padding: 2px 2px 2px 2px;
+  }
+  article{
+      margin: 0px 0px 0px 0px;
+      padding: 2px 2px 2px 2px;
+  }
 
-    h1{
-        font-family: 'Source Code Pro', monospace;
-        font-weight: bold;
-        text-align: center;
-    }
+  .page-content{
+      font-family: 'Source Code Pro', monospace;
+      max-width: 480px;
+      margin: auto;
+  }
 
-    h2{
-        font-family: 'Source Code Pro', monospace;
-        font-weight: bold;
-        text-align: left;
-        margin-left: 25px;
-        margin-bottom: 5px;
-    }
+  /* NAVIGATION */
+  .title{
+      display: grid;
+      grid-template-rows: auto auto;
+      margin-left: 20px;
+      padding-top:20px;
+      padding-bottom: 20px;
+      background-color: none;
+      border:seashell;
+      grid-template-columns: auto auto;
+      border-width: 10px;
+      border-color: black;
+      font-size: small;
+      font-family: 'Source Code Pro', monospace;
+      max-height: 80px;
+  }
 
-    p{
-        font-family: 'Source Code Pro', monospace;
-        font-weight: normal;
-    }
-
-    footer{
-        font-family: 'Source Code Pro', monospace;
-        margin: auto;
-        padding-left: 20px;
-        padding-right: 20px;
-        margin-left: 20px;
-        margin-right: 20px;
-        padding: 5px;
-        margin-top: 50px;
-        background-color: rgba(243, 186, 132, 0.5);
-        text-align: center;
-        font-size: 8px;
-    }
-
-    .nav-container{
-        margin: auto;
-        padding-left: 20px;
-        padding-right: 20px;
-        margin-left: 20px;
-        margin-right: 20px;
-        padding: 5px;
-        margin-top: 50px;
-        background: rgba(243, 186, 132, 0.1);
-        text-align: center;
-        font-size: 12px;
-    }
-
-    .nav-container > a{
-        text-align: center;
-    }
-
-    .page-content{
-
-        max-width: 480px;
-        margin: auto;
-    }
-}
-
-.entry-image{
-    min-width: 100px;
-    max-width: 50%;
-}
-
-  a:visited,
-  a:link,
-  a:active {
-    color: maroon;
-}
+  .title > .title-name{
+      text-align: inherit;
+      font-size: 30px;
+      min-height: 25px;
+      max-height: 30px;
+      background-image: "./img/airplane.jpg";
+  }
   
-  a:hover {
-    color: chocolate;
+  .title-image{
+      min-width: 100px;
+      max-width: 100px;
+  }
+
+  .title > a{
+      text-align: center;
+  }
+
+  .search{
+      border-radius: 4px;
+      border: 1px solid rgba(248, 213, 180, 0.63);
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: auto auto auto auto;
+      grid-gap: 5px;
+      background-color: rgba(243, 186, 132, 0.5);
+      min-height: 80px;
+      max-height: 140px;
+      margin: auto;
+      text-align: left;
+      margin-top: 10px;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom: 20px;
+      padding: 5px;
+  }
+
+  .search > .searchbar{
+      font-size: 18px;
+      height: auto;
+      margin: 0px;
+      position: inherit;
+      min-width: auto;
+      padding-left: 5px;
+      grid-column: 1 / span 3;
+      grid-row: 2;
+      font-weight: bold;
+      text-align: left;
+
+    }
+
+    .search > .go{
+      font-size: 18px;
+      height: auto;
+      margin: 0px;
+      position: inherit;
+      min-width: auto;
+      max-width: 50px;
+      padding-left: 5px;
+      grid-column: 4;
+      grid-row: 2;
+
+      font-weight: bold;
+      text-align: center;
+    }
+    .search > article{
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: auto auto auto;
+      height: auto;
+      margin: 0px;
+      min-width: auto;
+      max-width: auto;
+      margin-top: 5px;
+      padding-left: 0px;
+      padding-right: 5px;
+      grid-column: 1;
+      grid-row: 3;
+      font-weight: bold;
+      text-align: left;
+    }
+    .search > .boxbox{
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: auto;
+      height: auto;
+      margin: 0px;
+      min-width: auto;
+      max-width: auto;
+      margin-top: 5px;
+      padding-left: 0px;
+      padding-right: 5px;
+      grid-column: 1;
+      grid-row: 3;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    .weather{
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-template-rows: auto auto auto;
+      grid-gap: 5px;
+      background-color: rgba(243, 186, 132, 0.5);
+      margin: auto;
+      text-align: left;
+      margin-top: 20px;
+      margin-left: 20px;
+      margin-right: 20px;
+      padding: 5px;
+  }
+
+    .weather > .Location{
+      padding-top: 0px;
+      padding-left: 5px;
+      margin-top: 2px;
+      margin-left: 10px;
+      min-width: auto;
+      grid-column: 1;
+      grid-row: 3;
+      font-size: 14px;
+      font-weight: bolder;
+      text-align: inherit;
+    }
+
+
+    .weather > .weekday{
+      padding-top: 0px;
+      padding-left: 5px;
+      margin-top: 2px;
+      margin-left: 10px;
+      min-width: auto;
+      grid-column: 2 / span 3;
+      grid-row: 1;
+      font-size: 14px;
+      font-weight: bolder;
+      text-align: inherit;
+    }
+
+  .weather > .temp {
+      padding-top: 0px;
+      padding-left: 5px;
+      margin-top: 2px;
+      margin-left: 10px;
+      min-width: auto;
+      grid-column: 2 / span 3;
+      grid-row: 2;
+      font-size: 14px;
+      font-weight: bolder;
+      text-align: inherit;
+    }
+    .weather > .condition {
+      padding-top: 0px;
+      padding-left: 5px;
+      margin-top: 2px;
+      margin-left: 10px;
+      min-width: auto;
+      grid-column: 2 / span 3;
+      grid-row: 3;
+      font-size: 14px;
+      font-weight: bolder;
+      text-align: inherit;
+    }
+
+    .weather > .entry-image{
+      padding-top: 0px;
+      margin-top: 2px;
+      max-height: 80px;
+      max-width: 80px;
+      padding-left: 5px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      grid-column: 1;
+      grid-row: 1 / span 3;
+    }
+
+  .results{
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: auto auto auto;
+      grid-gap: 5px;
+      background-color: rgba(243, 186, 132, 0.5);
+      margin: auto;
+      text-align: left;
+      margin-top: 20px;
+      margin-left: 20px;
+      margin-right: 20px;
+      padding: 5px;
+  }
+  .attraction{
+      display: grid;
+      grid-template-columns: 88 auto;
+      grid-template-rows: auto auto;
+      grid-gap: 5px;
+      background-color: rgba(243, 186, 132, 0.5);
+      margin: auto;
+      text-align: left;
+      max-height: 145px;
+      margin-top: 5px;
+      margin-left: 5px;
+      margin-right: 5px;
+      margin-bottom: 5px;
+      
+      padding: 5px;
+  }
+  .attraction > .name{
+      text-align: right;
+      padding: 0;
+      margin: 0;
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+  .attraction > .address {
+      text-align: right;
+      grid-column: 2;
+      grid-row: 2;
+    }
+    .attraction > .city {
+      text-align: right;
+      grid-column: 2;
+      grid-row: 3;
+    }
+
+    .attraction > img{
+      padding-top: 0px;
+      margin-top: 2px;
+      max-height: auto;
+      max-width: auto;
+      padding-left: 5px;
+      margin-right: 10px;
+      width: auto;
+      grid-column: 1  span 2 ;
+      grid-row: 1 / span 2;
+    }
+
+  h1{
+
+      font-weight: bold;
+      text-align: center;
+  }
+
+  h2{
+
+      font-weight: bold;
+      text-align: left;
+      margin-left: 25px;
+      margin-bottom: 5px;
+  }
+  
+  .Location{
+
+      font-weight: bold;
+      text-align: left;
+      margin-left: 25px;
+      margin-bottom: 5px;
+  }
+
+  footer{
+      margin: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+      margin-left: 20px;
+      margin-right: 20px;
+      padding: 5px;
+      margin-top: 50px;
+      background-color: rgba(243, 186, 132, 0.25);
+      text-align: center;
+      font-size: 12px;
+  }
+
 }
+
+/* unvisited link */
+a:link {
+  color: maroon;
+}
+
+/* visited link */
+a:visited {
+  color: maroon;
+}
+
+/* mouse over link */
+a:hover {
+  color: chocolate;
+}
+.attraction:hover, .weather:hover{
+  background-color: rgba(214, 144, 79, 0.479);
+}
+
+/* selected link */
+a:active {
+  color: maroon;
+} 

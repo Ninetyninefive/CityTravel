@@ -21,7 +21,7 @@
 
     .page-content{
         font-family: 'Source Code Pro', monospace;
-        max-width: 900px;
+        max-width: 1080px;
         margin: auto;
     }
 
@@ -39,6 +39,7 @@
         border-color: black;
         font-size: small;
         font-family: 'Source Code Pro', monospace;
+        
     }
 
     .title > .title-name{
@@ -46,6 +47,7 @@
         font-size: 45px;
         min-height: 25px;
         max-height: 50px;
+        background-image: "./img/airplane.jpg";
     }
     
     .title-image{
@@ -214,55 +216,37 @@
     }
     .attraction{
         display: grid;
-        grid-template-columns: auto auto;
+        grid-template-columns: 88 auto;
         grid-template-rows: auto auto;
         grid-gap: 5px;
         background-color: rgba(243, 186, 132, 0.5);
         margin: auto;
         text-align: left;
-        margin-top: 10px;
-        margin-left: 10px;
-        margin-right: 10px;
-        margin-bottom: 10px;
+        max-height: 145px;
+        margin-top: 5px;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
         
         padding: 5px;
     }
     .attraction > .name{
-        font-size: 18px;
-        height: 20px;
-        margin: 0px;
-        min-width: auto;
-        padding-left: 5px;
+        text-align: right;
+        padding: 0;
+        margin: 0;
         grid-column: 2;
         grid-row: 1;
-        font-weight: bold;
-        text-align: left;
       }
 
     .attraction > .address {
-        padding-top: 0px;
-        padding-left: 5px;
-        margin-top: 2px;
-        margin-left: 10px;
-        min-width: auto;
+        text-align: right;
         grid-column: 2;
         grid-row: 2;
-        font-size: 14px;
-        font-weight: normal;
-        text-align: left;
       }
       .attraction > .city {
-        padding-top: 0px;
-        padding-left: 5px;
-        margin-top: 2px;
-        margin-left: 10px;
-        min-width: auto;
+        text-align: right;
         grid-column: 2;
         grid-row: 3;
-        font-size: 14px;
-
-        font-weight: normal;
-        text-align: left;
       }
 
       .attraction > img{

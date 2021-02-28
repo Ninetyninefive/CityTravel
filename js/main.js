@@ -5,8 +5,8 @@ let weather, places;
 
 var dateObj = new Date()
 var weekday = dateObj.toLocaleString("default", { weekday: "long" })
-
 const todayYYYYMMDD = dateObj.toISOString().slice(0,10).replace(/-/g,"");
+
 const btn = document.querySelector('button');
 btn.onclick = getInputValuesAndExecuteSearch;
 
@@ -17,6 +17,12 @@ async function async_fetch(url) {
 }
 
 function getInputValuesAndExecuteSearch(){
+
+  let reset1 = document.querySelector('.weather');
+  let reset2 = document.querySelector('.results');
+  reset1.innerHTML = '';
+  reset2.innerHTML = '';
+
 
     var userInput = document.getElementById("searchstring").value;
     let searchString = userInput;
@@ -41,100 +47,113 @@ function getInputValuesAndExecuteSearch(){
     console.log(weather);
     console.log(places);
     
-    generateResults()
+    injectResults().then(console.log('success'));
+}
+async function someThingWentWrong(){
+   // Something went wrong ->
+  let article = document.querySelector('.weather');
+  // compose DOM nodes
+  let fragment = document.createDocumentFragment();
+  let h1 = document.createElement('h1');
+    h1.textContent = `Something went wrong!`;
+    h1.className = 'weekday';
+
+    fragment.appendChild(h1);
+
+// append the fragment to the DOM tree
+      article.appendChild(fragment);  
 }
 
-async function generateResults(){
-  if(toggleWeather){
-    showWeather();
-  } else if(toggleAttraction){
-    showPlaces();
-  } else if(toggleFilter){
-    showPlacesFiltered();
-  } else{
-    showWeather();
-    showPlaces();
-  }
-  
-}
-async function showWeather(){
+async function injectResults(){
+
   let x = await weather;
   
   let day = weekday;
   let temp = x.main.temp;
   let ftemp = x.main.feels_like;
   let desc = x.weather[0].description;
-  let icon = x.weather[0].icon;
-  let iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`
+  let iconWeather = x.weather[0].icon;
+  let iconWeatherUrl = `http://openweathermap.org/img/wn/${iconWeather}@2x.png`
   
-  let article = document.querySelector('.weather');
+  let target = document.querySelector('.weather');
   
 // compose DOM nodes
 let fragment = document.createDocumentFragment();
+
+let h2 = document.createElement('h2');
+    h2.className = 'Location';
+
 let h1 = document.createElement('h1');
     h1.textContent = `${day}`;
     h1.className = 'weekday';
+    fragment.appendChild(h1);
+
 let p1 = document.createElement('p');
     p1.textContent = `Temp: ${temp} °C`;
     p1.className = 'temp';
+    fragment.appendChild(p1);
+
 let p2 = document.createElement('p');
     p2.textContent = `Condition: ${desc}`;
     p2.className = 'condition';
+    fragment.appendChild(p2);
+
 let img = document.createElement('img');
-    img.src = `${iconUrl}`;
+    img.src = `${iconWeatherUrl}`;
     img.className = 'entry-image';
     img.crossOrigin = "anonymous";
-
-    fragment.appendChild(h1);
-    fragment.appendChild(p1);
-    fragment.appendChild(p2);
     fragment.appendChild(img);
 
-// append the fragment to the DOM tree
-  
-  article.appendChild(fragment);
+    // append the fragment to the DOM tree
+    target.appendChild(fragment);
+
+      let y = await places;
+      //////PLACES
+      let path = y.response.groups[0].items[0];
+
+      let name = path.venue.name;
+      let address = path.venue.location.address;
+      let city = path.venue.location.city;
+      
+      let iconPre = path.venue.categories[0].icon.prefix;
+      let iconSize = '88';
+      let iconSuff = path.venue.categories[0].icon.suffix;
+      let iconPlaceUrl = `${iconPre}${iconSize}${iconSuff}`;
+
+    // compose DOM nodes
+
+    target = document.querySelector('.results');
+    fragment = document.createDocumentFragment();
+
+    article = document.createElement('article');
+        article.textContent = '';
+        article.className = 'attraction';
+        fragment.appendChild(article);
+
+     h1 = document.createElement('h1');
+        h1.textContent = `${name}`;
+        h1.className = 'name';
+        article.appendChild(h1);
+
+     p1 = document.createElement('p');
+        p1.textContent = `${address}`;
+        p1.className = 'address';
+        article.appendChild(p1);
+
+     p2 = document.createElement('p');
+        p2.textContent = `${city}`;
+        p2.className = 'city';
+        article.appendChild(p2);
+
+     img = document.createElement('img');
+        img.src = `${iconPlaceUrl}`;
+        img.className = 'entry-image';
+        img.crossOrigin = "anonymous";
+        article.appendChild(img);
+        
+        target.appendChild(fragment);
 }
 
-async function showPlaces(){
-  let y = await places;
-  //////PLACES
-  let name = y.response.groups[0].items[0].venue.name;
-  let address = y.response.groups[0].items[0].venue.location.address;
-  let city = y.response.groups[0].items[0].venue.location.city;
-  let icon = y.response.groups[0].items[0].venue.categories[0].icon.prefix + y.response.groups[0].items[0].venue.categories[0].icon.suffix;
-  let iconUrl = `${icon}`;
-  
-  let div = document.querySelector('.results');
-  
-// compose DOM nodes
-let fragment2 = document.createDocumentFragment();
-let article = document.createElement('article')
-    article.className = 'attraction';
-let h1 = document.createElement('h1');
-    h1.textContent = `${name}`;
-    h1.className = 'name';
-let p1 = document.createElement('p');
-    p1.textContent = `${address}`;
-    p1.className = 'address';
-let p2 = document.createElement('p');
-    p2.textContent = `${city}`;
-    p2.className = 'city';
-let img = document.createElement('img');
-    img.src = `${iconUrl}`;
-    img.className = 'entry-image';
-    img.crossOrigin = "anonymous";
-    
-    fragment2.appendChild(article);
-    fragment2.appendChild(h1);
-    fragment2.appendChild(p1);
-    fragment2.appendChild(p2);
-    fragment2.appendChild(img);
-
-// append the fragment to the DOM tree
-  
-  div.appendChild(fragment);
-  
-}
 function showResultsBasedOnFilters(){
   
 }

@@ -31,7 +31,7 @@ async function sortByAlpha(){
           "name" : path.venue.name,
           "address": path.venue.location.address,
           "city": path.venue.location.city,
-          "iconPlaceUrl": iconPlaceUrl = path.venue.categories[0].icon.prefix + '88' + path.venue.categories[0].icon.suffix
+          "iconPlaceUrl": path.venue.categories[0].icon.prefix + '88' + path.venue.categories[0].icon.suffix
         };
       }
         const sorted = item1.name.sort(compare);
@@ -73,7 +73,6 @@ async function sortByAlpha(){
         
 }
 */
-
 
 function disableAttractions(){
   let disable = document.querySelector('.results');
@@ -135,7 +134,11 @@ function getInputValuesAndExecuteSearch(){
     console.log(weather);
     console.log(places);
     
-    injectResults().then(console.log('success')).catch(PromiseRejectionEvent(someThingWentWrong()));
+    injectResults().then().catch(Error => {
+      if(404){
+        someThingWentWrong();
+      }
+    });
 }
 async function someThingWentWrong(){
    // Something went wrong ->
@@ -267,8 +270,10 @@ let img = document.createElement('img');
           target.appendChild(fragment);
         }
       }
-
 }
+ 
+
+
 
       
 /*

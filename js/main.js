@@ -10,6 +10,7 @@ const todayYYYYMMDD = dateObj.toISOString().slice(0,10).replace(/-/g,"");
 const btn = document.querySelector('button');
 btn.onclick = getInputValuesAndExecuteSearch;
 
+
 toggleWeather.onclick = disableAttractions;
 toggleAttraction.onclick = disableWeather;
 // toggleFilter.onclick = sortByAlpha;
@@ -134,7 +135,7 @@ function getInputValuesAndExecuteSearch(){
     console.log(weather);
     console.log(places);
     
-    injectResults().then(console.log('success'));
+    injectResults().then(console.log('success')).catch(PromiseRejectionEvent(someThingWentWrong()));
 }
 async function someThingWentWrong(){
    // Something went wrong ->

@@ -12,6 +12,67 @@ btn.onclick = getInputValuesAndExecuteSearch;
 
 toggleWeather.onclick = disableAttractions;
 toggleAttraction.onclick = disableWeather;
+// toggleFilter.onclick = sortByAlpha;
+
+
+/*
+async function sortByAlpha(){
+  let disable = document.querySelector('.results');
+  disable.innerHTML = '';
+
+  let y = await places;
+      
+      for (let index = 0; index < y.response.groups[0].items.length; index++) {
+          let path = y.response.groups[0].items[index];
+
+        let item1 = new {
+          "index": y.response.groups[0].items[index],
+          "name" : path.venue.name,
+          "address": path.venue.location.address,
+          "city": path.venue.location.city,
+          "iconPlaceUrl": iconPlaceUrl = path.venue.categories[0].icon.prefix + '88' + path.venue.categories[0].icon.suffix
+        };
+      }
+        const sorted = item1.name.sort(compare);
+        console.log(sorted);
+        
+      // compose DOM nodes
+    sorted.forEach(Element => {
+      target = document.querySelector('.results');
+      fragment = document.createDocumentFragment();
+  
+      article = document.createElement('article');
+          article.textContent = '';
+          article.className = 'attraction';
+          fragment.appendChild(article);
+  
+       h1 = document.createElement('h1');
+          h1.textContent = `${item1.name}`;
+          h1.className = 'name';
+          article.appendChild(h1);
+  
+       p1 = document.createElement('p');
+          p1.textContent = `${item1.address}`;
+          p1.className = 'address';
+          article.appendChild(p1);
+  
+       p2 = document.createElement('p');
+          p2.textContent = `${item1.city}`;
+          p2.className = 'city';
+          article.appendChild(p2);
+  
+       img = document.createElement('img');
+          img.src = `${item1.iconPlaceUrl}`;
+          img.className = 'entry-image';
+          img.crossOrigin = "anonymous";
+          article.appendChild(img);
+        
+        target.appendChild(fragment);
+      });
+        
+}
+*/
+
 
 function disableAttractions(){
   let disable = document.querySelector('.results');
@@ -23,6 +84,17 @@ function disableWeather(){
   disable.innerHTML = '';
   const disableWeather = 'true';
 }
+
+function compare( a, b ) {
+  if ( a.last_nom < b.last_nom ){
+    return -1;
+  }
+  if ( a.last_nom > b.last_nom ){
+    return 1;
+  }
+  return 0;
+}
+
 
 
 async function async_fetch(url) {
@@ -121,8 +193,10 @@ let img = document.createElement('img');
     fragment.appendChild(img);
 
     // append the fragment to the DOM tree
-    
-      target.appendChild(fragment);
+      if(!toggleAttraction.checked){
+        target.appendChild(fragment);
+      }
+      
     
     
       //INJECT PLACES INFO
@@ -141,6 +215,23 @@ let img = document.createElement('img');
         let iconPlaceUrl = `${iconPre}${iconSize}${iconSuff}`;
   
       // compose DOM nodes
+
+
+      /*
+          for (let index = 0; index < y.response.groups[0].items.length; index++) {
+          let path = y.response.groups[0].items[index];
+
+        const obj = {
+          "index": y.response.groups[0].items[index],
+          "name" : path.venue.name,
+          "address": path.venue.location.address,
+          "city": path.venue.location.city,
+          "iconPre": path.venue.categories[0].icon.prefix,
+          "iconSize": '88',
+          "iconSuff": path.venue.categories[0].icon.suffix,
+          "iconPlaceUrl": iconPlaceUrl = `${iconPre}${iconSize}${iconSuff}`
+        };
+      */
   
       target = document.querySelector('.results');
       fragment = document.createDocumentFragment();
@@ -170,9 +261,10 @@ let img = document.createElement('img');
           img.className = 'entry-image';
           img.crossOrigin = "anonymous";
           article.appendChild(img);
-
-        target.appendChild(fragment);
-          
+        
+        if(!toggleWeather.checked){
+          target.appendChild(fragment);
+        }
       }
 
 }

@@ -51,7 +51,7 @@ async function sortByAlpha(){
       console.log(current);
       console.log(results);
       
-      // compose DOM nodes
+      // compose DOM nodes for RESULTs
     sorted.forEach(Object => {
       target = document.querySelector('.results');
       fragment = document.createDocumentFragment();
@@ -204,55 +204,63 @@ let img = document.createElement('img');
         target.appendChild(fragment);
       }
       
-    
-    
       //INJECT PLACES INFO
+      let results = [];
       let y = await places;
-      
-      for (let index = 0; index < y.response.groups[0].items.length; index++) {
-          let path = y.response.groups[0].items[index];
-        
-        let name = path.venue.name;
-        let address = path.venue.location.address;
-        let city = path.venue.location.city;
-        
-        let iconPre = path.venue.categories[0].icon.prefix;
-        let iconSize = '88';
-        let iconSuff = path.venue.categories[0].icon.suffix;
-        let iconPlaceUrl = `${iconPre}${iconSize}${iconSuff}`;
-  
+          
+          for (let index = 0; index < y.response.groups[0].items.length; index++) {
+              let path = y.response.groups[0].items[index];
+    
+            var current = new result(
+              y.response.groups[0].items[index],
+              path.venue.name,
+              path.venue.location.address,
+              path.venue.location.city,
+              path.venue.categories[0].icon.prefix + '88' + path.venue.categories[0].icon.suffix
+            );
+    
+            results.push(current);
+          };
+          if(toggleFilter.checked){
+            let sorted = sortByKey(results, 'name')
+            results = sorted;
+          }
+
       // compose DOM nodes  
-      target = document.querySelector('.results');
-      fragment = document.createDocumentFragment();
-  
-      article = document.createElement('article');
-          article.textContent = '';
-          article.className = 'attraction';
-          fragment.appendChild(article);
-  
-       h1 = document.createElement('h1');
-          h1.textContent = `${name}`;
-          h1.className = 'name';
-          article.appendChild(h1);
-  
-       p1 = document.createElement('p');
-          p1.textContent = `${address}`;
-          p1.className = 'address';
-          article.appendChild(p1);
-  
-       p2 = document.createElement('p');
-          p2.textContent = `${city}`;
-          p2.className = 'city';
-          article.appendChild(p2);
-  
-       img = document.createElement('img');
-          img.src = `${iconPlaceUrl}`;
-          img.className = 'entry-image';
-          img.crossOrigin = "anonymous";
-          article.appendChild(img);
+      results.forEach(Object => {
+        target = document.querySelector('.results');
+        fragment = document.createDocumentFragment();
+    
+        article = document.createElement('article');
+            article.textContent = '';
+            article.className = 'attraction';
+            fragment.appendChild(article);
+    
+         h1 = document.createElement('h1');
+            h1.textContent = `${Object.name}`;
+            h1.className = 'name';
+            article.appendChild(h1);
+    
+         p1 = document.createElement('p');
+            p1.textContent = `${Object.address}`;
+            p1.className = 'address';
+            article.appendChild(p1);
+    
+         p2 = document.createElement('p');
+            p2.textContent = `${Object.city}`;
+            p2.className = 'city';
+            article.appendChild(p2);
+    
+         img = document.createElement('img');
+            img.src = `${Object.iconPlaceUrl}`;
+            img.className = 'entry-image';
+            img.crossOrigin = "anonymous";
+            article.appendChild(img);
+          
+            if(!toggleWeather.checked){
+              target.appendChild(fragment);
+            }
+        })
         
-        if(!toggleWeather.checked){
-          target.appendChild(fragment);
-        }
+        
       }
-}

@@ -13,32 +13,46 @@ btn.onclick = getInputValuesAndExecuteSearch;
 
 toggleWeather.onclick = disableAttractions;
 toggleAttraction.onclick = disableWeather;
-// toggleFilter.onclick = sortByAlpha;
+toggleFilter.onclick = sortByAlpha;
 
+function result(index, name, address, city, iconPlaceUrl){
+  this.index = index;
+  this.name = name;
+  this.address = address;
+  this.city = city;
+  this.iconPlaceUrl = iconPlaceUrl;
+};
 
-/*
 async function sortByAlpha(){
   let disable = document.querySelector('.results');
   disable.innerHTML = '';
 
+  let results = [];
   let y = await places;
       
       for (let index = 0; index < y.response.groups[0].items.length; index++) {
           let path = y.response.groups[0].items[index];
 
-        let item1 = new {
-          "index": y.response.groups[0].items[index],
-          "name" : path.venue.name,
-          "address": path.venue.location.address,
-          "city": path.venue.location.city,
-          "iconPlaceUrl": path.venue.categories[0].icon.prefix + '88' + path.venue.categories[0].icon.suffix
-        };
-      }
-        const sorted = item1.name.sort(compare);
-        console.log(sorted);
-        
+        var current = new result(
+          y.response.groups[0].items[index],
+          path.venue.name,
+          path.venue.location.address,
+          path.venue.location.city,
+          path.venue.categories[0].icon.prefix + '88' + path.venue.categories[0].icon.suffix
+        );
+
+        results.push(current);
+      };
+
+      let sorted = sortByKey(results, 'name')
+
+      console.log(results.sort)
+      console.log(sorted);
+      console.log(current);
+      console.log(results);
+      
       // compose DOM nodes
-    sorted.forEach(Element => {
+    sorted.forEach(Object => {
       target = document.querySelector('.results');
       fragment = document.createDocumentFragment();
   
@@ -48,31 +62,30 @@ async function sortByAlpha(){
           fragment.appendChild(article);
   
        h1 = document.createElement('h1');
-          h1.textContent = `${item1.name}`;
+          h1.textContent = `${Object.name}`;
           h1.className = 'name';
           article.appendChild(h1);
   
        p1 = document.createElement('p');
-          p1.textContent = `${item1.address}`;
+          p1.textContent = `${Object.address}`;
           p1.className = 'address';
           article.appendChild(p1);
   
        p2 = document.createElement('p');
-          p2.textContent = `${item1.city}`;
+          p2.textContent = `${Object.city}`;
           p2.className = 'city';
           article.appendChild(p2);
   
        img = document.createElement('img');
-          img.src = `${item1.iconPlaceUrl}`;
+          img.src = `${Object.iconPlaceUrl}`;
           img.className = 'entry-image';
           img.crossOrigin = "anonymous";
           article.appendChild(img);
         
         target.appendChild(fragment);
-      });
-        
-}
-*/
+      })
+     
+};
 
 function disableAttractions(){
   let disable = document.querySelector('.results');
@@ -85,17 +98,12 @@ function disableWeather(){
   const disableWeather = 'true';
 }
 
-function compare( a, b ) {
-  if ( a.last_nom < b.last_nom ){
-    return -1;
-  }
-  if ( a.last_nom > b.last_nom ){
-    return 1;
-  }
-  return 0;
+function sortByKey(array, key) {
+return array.sort(function(a, b) {
+    var x = a[key]; var y = b[key];
+    return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+});
 }
-
-
 
 async function async_fetch(url) {
   let response = await fetch(url)
@@ -125,11 +133,6 @@ function getInputValuesAndExecuteSearch(){
       weather = async_fetch(owApiUrl);
       places = async_fetch(fourSquareUrl);
     }    
-    /*
-    const toggleWeather = document.getElementById("weatherbox");
-    const toggleAttraction = document.getElementById("attractionbox");
-    const toggleFilter = document.getElementById("filterbox");
-    */
 
     console.log(weather);
     console.log(places);
@@ -218,25 +221,7 @@ let img = document.createElement('img');
         let iconSuff = path.venue.categories[0].icon.suffix;
         let iconPlaceUrl = `${iconPre}${iconSize}${iconSuff}`;
   
-      // compose DOM nodes
-
-
-      /*
-          for (let index = 0; index < y.response.groups[0].items.length; index++) {
-          let path = y.response.groups[0].items[index];
-
-        const obj = {
-          "index": y.response.groups[0].items[index],
-          "name" : path.venue.name,
-          "address": path.venue.location.address,
-          "city": path.venue.location.city,
-          "iconPre": path.venue.categories[0].icon.prefix,
-          "iconSize": '88',
-          "iconSuff": path.venue.categories[0].icon.suffix,
-          "iconPlaceUrl": iconPlaceUrl = `${iconPre}${iconSize}${iconSuff}`
-        };
-      */
-  
+      // compose DOM nodes  
       target = document.querySelector('.results');
       fragment = document.createDocumentFragment();
   
@@ -271,30 +256,3 @@ let img = document.createElement('img');
         }
       }
 }
- 
-
-
-
-      
-/*
-https://api.foursquare.com/v2/venues/explore?ll=40.7,-74&v=20121124
-GET https://api.foursquare.com/v2/venues/explore
-&client_id=XXXX&client_secret=XXXX
-&near 	Chicago, IL 	required unless ll is provided
-&section 	food || topPicks
-&limit 	10
-sortByPopularity 	1
-v=<dagensdatum>,
-
-
-ex:http://api.foursquare.com/v2/venues/explore?.....&v=20210114.
-****
-
-https://api.openweathermap.org/data/2.5/weather
-
-api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
-
-q
-APPID
-units=metric
-*/

@@ -1,9 +1,13 @@
 @media screen and (min-width:980px)/* Desktop */
 {
     body{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
         font-family: 'Source Code Pro', monospace;
-        background: rgba(243, 186, 132, 0.5);
-        margin: auto;
+        background-image: linear-gradient(270deg, rgba(247,247,247,1) 20%, rgba(243, 186, 132, 0.5) 92%);
+        margin: 0;
     }
 
     div{

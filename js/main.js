@@ -28,7 +28,7 @@ async function sortByAlpha(){
   disable.innerHTML = '';
 
   let results = [];
-  let y = await places;
+  let y = places;
       
       for (let index = 0; index < y.response.groups[0].items.length; index++) {
           let path = y.response.groups[0].items[index];
@@ -40,6 +40,8 @@ async function sortByAlpha(){
           path.venue.location.city,
           path.venue.categories[0].icon.prefix + '88' + path.venue.categories[0].icon.suffix
         );
+
+        
 
         results.push(current);
       };
@@ -106,17 +108,23 @@ return array.sort(function(a, b) {
 }
 
 async function async_fetch(url) {
-  let response = await fetch(url)
-  if (response.ok) return await response.json()
-  throw new Error(response.status)
+  try {
+    let response = await fetch(url)
+    if (response.ok) return response.json()
+    throw new Error(response.status)
+  } catch (e) {
+    someThingWentWrong();
+  }
 }
 
-function getInputValuesAndExecuteSearch(){
+async function getInputValuesAndExecuteSearch(){
 
   let reset1 = document.querySelector('.weather');
   let reset2 = document.querySelector('.results');
   reset1.innerHTML = '';
   reset2.innerHTML = '';
+  reset1.style.display="grid";
+  reset2.style.display="grid";
 
 
     var userInput = document.getElementById("searchstring").value;
@@ -130,12 +138,9 @@ function getInputValuesAndExecuteSearch(){
     let fourSquareUrl = `https://api.foursquare.com/v2/venues/explore?near=${searchString}&v=${todayYYYYMMDD}&client_id=${fourSquareClientId}&client_secret=${fourSquareClientSecret}&limit=10`
     
     if (userInput != ""){
-      weather = async_fetch(owApiUrl);
-      places = async_fetch(fourSquareUrl);
+      weather = await async_fetch(owApiUrl);
+      places = await async_fetch(fourSquareUrl);
     }    
-
-    console.log(weather);
-    console.log(places);
     
     injectResults().then().catch(Error => {
       if(404){
@@ -159,7 +164,7 @@ async function someThingWentWrong(){
 
 async function injectResults(){
   //INJECTING WEATHER INFO
-  let x = await weather;
+  let x = weather;
   
   let day = weekday;
   let temp = x.main.temp;
@@ -206,7 +211,7 @@ let img = document.createElement('img');
       
       //INJECT PLACES INFO
       let results = [];
-      let y = await places;
+      let y = places;
           
           for (let index = 0; index < y.response.groups[0].items.length; index++) {
               let path = y.response.groups[0].items[index];

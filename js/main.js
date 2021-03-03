@@ -40,9 +40,7 @@ async function sortByAlpha(){
           path.venue.location.city,
           path.venue.categories[0].icon.prefix + '88' + path.venue.categories[0].icon.suffix
         );
-
         
-
         results.push(current);
       };
 
@@ -154,8 +152,9 @@ async function someThingWentWrong(){
   // compose DOM nodes
   let fragment = document.createDocumentFragment();
   let h1 = document.createElement('h1');
-    h1.textContent = `Something went wrong!`;
-
+    
+      h1.textContent = `Something went wrong!`;
+    
     fragment.appendChild(h1);
 
 // append the fragment to the DOM tree
@@ -212,7 +211,7 @@ let img = document.createElement('img');
       //INJECT PLACES INFO
       let results = [];
       let y = places;
-          
+
           for (let index = 0; index < y.response.groups[0].items.length; index++) {
               let path = y.response.groups[0].items[index];
     
